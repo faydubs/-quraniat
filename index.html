@@ -352,7 +352,7 @@
       <div class="pillbar">
         <div class="pill" id="whoPill">غير مسجل</div>
         <button class="toolbarBtn" id="gotoAppBtn" type="button">لوحة المتابعة</button>
-        <button class="toolbarBtn" id="gotoLbBtn" type="button">الليدر بورد</button>
+        <button class="toolbarBtn" id="gotoLbBtn" type="button">ساحة الصدارة</button>
         <button class="toolbarBtn danger hide" id="logoutBtn" type="button">تسجيل خروج</button>
       </div>
     </div>
@@ -479,7 +479,7 @@
       <div class="cardHead">
         <div>
           <h2 class="cardTitle">ساحة الصدارة</h2>
-          <p class="cardSub">ترتيب جميع المستخدمين (مشترك للجميع).</p>
+          <p class="cardSub">اللهم من سبق فزده بركة,ومن تأخر فقوّ عزيمته</p>
         </div>
       </div>
       <div class="cardBody">
@@ -538,14 +538,15 @@
 
     function showRandomMessage(){
       const messages = [
-        "بارك الله فيك 🌙",
-        "ما شاء الله عليك ✨",
-        "تقبل الله قراءتك 📖",
-        "نور الله قلبك 💛",
-        "زادك الله قربًا 🤍",
-        "استمر 👏",
-        "خطوة مباركة 🌿",
-        "ممتاز ✅",
+        "بارك الله فيك ",
+        "ما شاء الله عليك ",
+        "بطل ",
+        "نور الله قلبك ",
+        "زادك الله قربًا ",
+        "استمر ",
+        "خطوة مباركة ",
+        "ممتاز ",
+        "شطور ",
       ];
       toast(messages[Math.floor(Math.random() * messages.length)]);
     }
@@ -744,9 +745,9 @@
           }
         }
 
-        regMsg.textContent = "تم إنشاء الحساب ✅ الآن سجّل دخولك.";
+        regMsg.textContent = "تم إنشاء الحساب  الآن سجّل دخولك.";
         regMsg.classList.add("show");
-        toast("تم إنشاء الحساب 🌙");
+        toast("تم إنشاء الحساب ");
 
         tabLogin.click();
         $("loginUser").value = username;
@@ -785,7 +786,7 @@
           return;
         }
 
-        toast("أهلًا وسهلًا 🌙");
+        toast("أهلًا وسهلًا");
         currentUser = data?.user?.id || null;
         await renderAll();
         showApp();
@@ -868,7 +869,7 @@
       const my = await fetchMyProgress(userId);
       if(my.length === 30){
         await incrementKhatmaAndReset(userId);
-        toast("ما شاء الله! تمّت الختمة 🎉🌙 وبدأت ختمة جديدة", 5000);
+        toast("🎉اكملت الختمه🎉 ", 5000);
       }
 
       await renderAll();
@@ -892,7 +893,7 @@
       const name = profRes.data?.display_name || "مستخدم";
       const khatmatCount = khRes.data?.count ?? 0;
 
-      helloTitle.textContent = `لوحة المتابعة — أهلًا يا ${name} 🌙`;
+      helloTitle.textContent = `  أهلًا يا ${name} `;
 
       const done = progressArr.length;
       const pct = Math.round((done/30)*100);
@@ -998,7 +999,7 @@
         .eq("id", user.id)
         .maybeSingle();
 
-      whoPill.textContent = `مسجل: ${prof?.display_name || "مستخدم"}`;
+      whoPill.textContent = `مسجل: ${prof?.display_name || ""}`;
     }
 
     // =========================
