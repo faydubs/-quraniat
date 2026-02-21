@@ -4,11 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>الرفيق القرآني</title>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">  
-     <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@700&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap" rel="stylesheet">
 
-     <style>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap" rel="stylesheet">
+
+  <style>
     :root{
       --bg1:#140141;
       --bg2:#0b5757;
@@ -17,7 +18,6 @@
       --stroke:rgba(15,23,42,.12);
       --text:#0f172a;
       --muted:rgba(15,23,42,.62);
-      --green:#290b35;
       --gold:#d4af37;
       --shadow: 0 14px 40px rgba(2,6,23,.08);
       --radius: 18px;
@@ -25,73 +25,44 @@
     *{ box-sizing:border-box; }
     body{
       margin:0;
- font-family: 'El Messiri', sans-serif;      color:var(--text);
+      font-family: 'El Messiri', sans-serif;
+      color:var(--text);
       background: linear-gradient(160deg, var(--bg1), var(--bg2), var(--bg3));
       min-height:100vh;
     }
     a,button,input{ font-family:inherit; }
     .wrap{ max-width: 1040px; margin: 0 auto; padding: 22px 16px 50px; }
-             
-    .topbar{
-     display:flex;
-     flex-direction:column;
-     align-items:center;
-     justify-content:center;
-     gap:7px;
-     margin-top: 10px;
+
+    .authBtn{
+      width:100%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(16,185,129,.35);
+      background: linear-gradient(135deg, rgba(16,185,129,.15), rgba(212,175,55,.15));
+      backdrop-filter: blur(6px);
+      font-weight: 800;
+      font-size: 14px;
+      color: rgba(15,23,42,.9);
+      cursor:pointer;
+      transition: all .25s ease;
+      box-shadow: 0 12px 30px rgba(2,6,23,.06);
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
+    .authBtn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px rgba(2,6,23,.10);
+      background: linear-gradient(135deg, rgba(16,185,129,.25), rgba(212,175,55,.25));
     }
-    /* ===== أزرار تسجيل الدخول ===== */
-.authBtn{
-  width:100%;
-  padding: 12px 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(16,185,129,.35);
+    .authBtn:active{ transform: scale(.98); }
+    .authBtn:disabled{ opacity:.65; cursor:not-allowed; transform:none; }
 
-  background: linear-gradient(135deg, rgba(16,185,129,.15), rgba(212,175,55,.15));
-  backdrop-filter: blur(6px);
-
-  font-weight: 800;
-  font-size: 14px;
-  color: rgba(15,23,42,.9);
-
-  cursor:pointer;
-  transition: all .25s ease;
-  box-shadow: 0 12px 30px rgba(2,6,23,.06);
-}
-
-.authBtn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 35px rgba(2,6,23,.10);
-  background: linear-gradient(135deg, rgba(16,185,129,.25), rgba(212,175,55,.25));
-}
-
-.authBtn:active{
-  transform: scale(.98);
-}
-    .logo{
-      width:54px; height:54px; border-radius:16px;
-      background: radial-gradient(circle at 30% 20%, rgba(212,175,55,.35), transparent 60%),
-                  radial-gradient(circle at 75% 60%, rgba(16,185,129,.20), transparent 60%),
-                  rgba(255,255,255,.65);
-      border:1px solid var(--stroke);
-      box-shadow: 0 10px 25px rgba(2,6,23,.06);
-      display:grid; place-items:center;
-      overflow:hidden;
+    .pillbar{
+      display:flex;
+      gap:5px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top: 8px;
     }
-    .brand h1{
-      margin:0; font-size: 25px; letter-spacing:.2px;
-    }
-    .brand p{ margin:2px 0 0; font-size:12px; color:var(--muted); }
-.pillbar{
-  display:flex;
-  gap:5px;
-  flex-wrap:wrap;
-  justify-content:center;
-}    .pill{
-      border:0px solid var(--stroke);
+    .pill{
       background: rgba(255,255,255,.55);
       padding: 8px 12px;
       border-radius: 999px;
@@ -100,58 +71,43 @@
       color: rgba(15,23,42,.75);
       display:flex; align-items:center; gap:8px;
     }
-   .toolbarBtn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
+    .toolbarBtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      padding: 10px 16px;
+      min-height: 42px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255, 255, 255, 0.11);
+      backdrop-filter: blur(6px);
+      font-weight: 700;
+      font-size: 14px;
+      color: rgba(255,255,255,.92);
+      cursor:pointer;
+      transition: all .25s ease;
+      box-shadow: 0 8px 24px rgba(2,6,23,.05);
+    }
+    .toolbarBtn:hover{
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.151);
+      box-shadow: 0 14px 30px rgba(2,6,23,.08);
+    }
+    .toolbarBtn:active{ transform: scale(.98); }
+    .toolbarBtn.danger{
+      background: rgba(239,68,68,.10);
+      color: rgba(255,255,255,.92);
+    }
 
-  padding: 10px 16px;
-  min-height: 1px;
-
-  border-radius: 500px;
-  border: 0px solid rgba(15,23,42,.12);
-
-  background: rgba(255, 255, 255, 0.11);
-  backdrop-filter: blur(6px);
-
-  font-weight: 700;
-  font-size: px;
-  color: rgba(15,23,42,.85);
-
-  cursor:pointer;
-  transition: all .25s ease;
-  box-shadow: 0 8px 24px rgba(2,6,23,.05);
-}
-
-.toolbarBtn:hover{
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.151);
-  box-shadow: 0 14px 30px rgba(2,6,23,.08);
-}
-
-.toolbarBtn:active{
-  transform: scale(.98);
-}
-
-.toolbarBtn.active{
-  border-color: rgba(16,185,129,.35);
-  background: rgba(16,185,129,.12);
-}
-
-.toolbarBtn.danger{
-  border-color: rgba(239,68,68,.30);
-  background: rgba(239,68,68,.10);
-}
     .grid{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
       gap: 16px;
       align-items:start;
     }
-    @media (max-width: 980px){
-      .grid{ grid-template-columns: 1fr; }
-    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
+
     .card{
       background: var(--card);
       border: 1px solid var(--stroke);
@@ -176,24 +132,17 @@
       border-bottom: 1px solid rgba(15,23,42,.08);
       background: rgba(255,255,255,.22);
     }
-    .cardTitle{ margin:0; font-size: 15px; }
-    .cardSub{ margin:6px 0 0; color: var(--muted); font-size: 12px; line-height:1.6; }
+    .cardTitle{ margin:0; font-size: 15px; color: rgba(255,255,255,.92); }
+    .cardSub{ margin:6px 0 0; color: rgba(255,255,255,.72); font-size: 12px; line-height:1.6; }
     .cardBody{ padding: 14px 16px 16px; }
 
-    /* Auth */
-    .authBox{
-      max-width: 520px;
-      margin: 48px auto 0;
-    }
-    .authTabs{
-      display:flex; gap:10px;
-      padding: 10px;
-    }
+    .authBox{ max-width: 520px; margin: 18px auto 0; }
+    .authTabs{ display:flex; gap:10px; padding: 10px; }
     .tab{
       flex:1;
       padding: 10px 12px;
       border-radius: 999px;
-      border:1px solid var(--stroke);
+      border:1px solid rgba(255,255,255,.20);
       background: rgba(255,255,255,.55);
       cursor:pointer;
       font-weight:700;
@@ -204,45 +153,36 @@
       background: rgba(16,185,129,.12);
       border-color: rgba(16,185,129,.28);
     }
-    .form{
-      padding: 14px 16px 16px;
-      display:grid;
-      gap: 10px;
-    }
-    .field{
-      display:grid; gap: 6px;
-    }
-    label{ font-size: 12px; color: rgba(15,23,42,.75); }
+    .form{ padding: 14px 16px 16px; display:grid; gap: 10px; }
+    .field{ display:grid; gap: 6px; }
+    label{ font-size: 12px; color: rgba(255,255,255,.78); }
     input{
       padding: 12px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(15,23,42,.14);
+      border: 1px solid rgba(255,255,255,.22);
       outline: none;
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.82);
       transition: box-shadow .2s ease, border-color .2s ease;
     }
     input:focus{
       border-color: rgba(16,185,129,.45);
       box-shadow: 0 0 0 4px rgba(16,185,129,.14);
     }
-    .row{
-      display:flex; gap: 10px; flex-wrap:wrap;
-      align-items:center; justify-content:space-between;
-    }
-    .hint{
-      font-size: 12px; color: var(--muted); line-height:1.6;
-    }
+    .row{ display:flex; gap: 10px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    .hint{ font-size: 12px; color: rgba(255,255,255,.72); line-height:1.6; }
+
     .msg{
       margin-top: 6px;
       padding: 10px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(15,23,42,.12);
+      border: 1px solid rgba(255,255,255,.20);
       background: rgba(255,255,255,.55);
       font-size: 12px;
-      color: rgba(15,23,42,.8);
+      color: rgba(15,23,42,.85);
       display:none;
     }
     .msg.show{ display:block; }
+
     .toast{
       position: fixed;
       inset: auto 16px 16px 16px;
@@ -252,103 +192,68 @@
       z-index: 50;
     }
     .toast > div{
-      pointer-events:none;
       max-width: 520px;
       width: 100%;
       padding: 12px 14px;
       border-radius: 16px;
       border: 1px solid rgba(16,185,129,.25);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.85);
       box-shadow: 0 18px 40px rgba(2,6,23,.12);
       font-size: 13px;
-      color: rgba(15,23,42,.85);
+      color: rgba(15,23,42,.88);
       opacity: 0;
       transform: translateY(8px);
       transition: opacity .25s ease, transform .25s ease;
     }
-    .toast.show > div{
-      opacity: 1;
-      transform: translateY(0px);
-    }
+    .toast.show > div{ opacity: 1; transform: translateY(0px); }
 
-    /* Progress */
-    .progressWrap{
-      display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap:wrap;
-      margin-bottom: 12px;
-    }
+    .progressWrap{ display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap:wrap; margin-bottom: 12px; }
     .progressBar{
       width:100%;
       height: 12px;
       border-radius: 999px;
-      background: rgba(15,23,42,.08);
-      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.20);
       overflow:hidden;
     }
     .progressFill{
       height:100%;
       width:0%;
       border-radius: 999px;
-      background: linear-gradient(90deg, rgba(16,185,129,.55), rgba(212,175,55,.35));
+      background: linear-gradient(90deg, rgba(16,185,129,.65), rgba(212,175,55,.45));
       box-shadow: 0 0 24px rgba(16,185,129,.18);
       transition: width .35s ease;
     }
 
-    /* Juz grid */
-    .juzGrid{
-      display:grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 10px;
-    }
-    @media (max-width: 520px){
-      .juzGrid{ grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    }
+    .juzGrid{ display:grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+    @media (max-width: 520px){ .juzGrid{ grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+
     .juzBtn{
-      position:relative;
       border-radius: 18px;
       padding: 12px 10px;
       cursor:pointer;
-      border: 1px solid rgba(15,23,42,.12);
+      border: 1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.55);
       transition: transform .12s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
       overflow:hidden;
       min-height: 68px;
     }
-    .juzBtn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 14px 30px rgba(2,6,23,.08);
-    }
+    .juzBtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.72); box-shadow: 0 14px 30px rgba(2,6,23,.08); }
     .juzBtn:active{ transform: translateY(0px) scale(.99); }
     .juzBtn .small{ font-size: 11px; color: rgba(15,23,42,.55); }
     .juzBtn .num{ font-weight: 800; font-size: 18px; margin-top: 4px; }
-
     .juzBtn.done{
       background: rgba(16,185,129,.12);
       border-color: rgba(16,185,129,.28);
       box-shadow: 0 0 28px rgba(16,185,129,.16);
     }
-    .juzBtn.done::after{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      background: radial-gradient(circle at 20% 10%, rgba(255,255,255,.45), transparent 55%);
-      opacity: .9;
-      pointer-events:none;
-    }
-    .check{
-      margin-top: 6px;
-      font-size: 11px;
-      color: rgba(5,150,105,.95);
-      font-weight: 700;
-    }
 
-    /* Leaderboard */
     .lbList{ display:grid; gap: 10px; }
     .lbRow{
       display:flex; align-items:center; justify-content:space-between; gap: 12px;
       padding: 12px 12px;
       border-radius: 16px;
-      border: 1px solid rgba(15,23,42,.10);
+      border: 1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.5);
     }
     .lbLeft{ display:flex; align-items:center; gap: 10px; }
@@ -361,113 +266,53 @@
       font-weight: 800;
       color: rgba(15,23,42,.78);
     }
-    .name{
-      font-weight: 800;
-      font-size: 13px;
-    }
-    .meta{
-      font-size: 11px;
-      color: rgba(15,23,42,.62);
-      margin-top: 2px;
-    }
-    .score{
-      font-weight: 900;
-      color: rgba(15,23,42,.82);
-    }
+    .name{ font-weight: 800; font-size: 13px; }
+    .meta{ font-size: 11px; color: rgba(15,23,42,.62); margin-top: 2px; }
 
-    /* Decorative header scene */
+    .khatmaTag{
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+      min-width: 56px;
+      padding: 8px 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,.28);
+      background: rgba(212,175,55,.10);
+    }
+    .khatmaTag .crown{ font-size: 16px; line-height: 1; }
+    .khatmaTag .num{ font-weight: 900; font-size: 14px; color: rgba(15,23,42,.86); line-height: 1; }
+    .khatmaTag .label{ font-size: 10px; color: rgba(15,23,42,.60); margin-top: -2px; }
+
     .scene{
       display:flex; align-items:center; justify-content:space-between; gap: 10px;
       margin-bottom: 16px;
       padding: 14px 16px;
       border-radius: var(--radius);
-      border: 1px solid rgba(15,23,42,.10);
+      border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.45);
       box-shadow: 0 10px 30px rgba(2,6,23,.05);
       overflow:hidden;
       position:relative;
     }
-    .scene::before{
-      content:"";
-      position:absolute; inset:-1px;
-      background:
-        radial-gradient(circle at 12% 60%, rgba(212,175,55,.12), transparent 55%),
-        radial-gradient(circle at 80% 10%, rgba(16,185,129,.10), transparent 55%);
-      pointer-events:none;
-    }
-    .khatmaTag{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:4px;
-  min-width: 56px;
-  padding: 8px 10px;
-  border-radius: 16px;
-  border: 1px solid rgba(212,175,55,.28);
-  background: rgba(212,175,55,.10);
-  box-shadow: 0 10px 24px rgba(2,6,23,.06);
-}
-
-.khatmaTag .crown{
-  font-size: 16px;
-  line-height: 1;
-}
-
-.khatmaTag .num{
-  font-weight: 900;
-  font-size: 14px;
-  color: rgba(15,23,42,.86);
-  line-height: 1;
-}
-
-.khatmaTag .label{
-  font-size: 10px;
-  color: rgba(15,23,42,.60);
-  margin-top: -2px;
-}
-.heroHeader{
-  text-align:center;
-  margin-bottom: 50px;
-  padding-top: 10px;
-}
-
-.heroMoon{
-  margin-bottom: 10px;
-  animation: floatMoon 6s ease-in-out infinite;
-}
-
-.heroTitle{
-   font-family: 'Reem Kufi Fun', sans-serif;
-font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
-  margin: 0;
-  background: linear-gradient(90deg, #39e9ae, #0d023f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.heroSub{
-  margin-top: 5px;
-  font-size: 14px;
-  color: rgba(15,23,42,.6);
-
-   font-family: 'El Messiri', sans-serif;;}
-
-@media (max-width: 600px){
-  .heroTitle{
-    font-size: 70px;
-  }
-}
-
-@keyframes floatMoon{
-  0%{ transform: translateY(0px); }
-  50%{ transform: translateY(-4px); }
-  100%{ transform: translateY(0px); }
-}
-    .scene > *{ position:relative; }
-    .sceneTitle{ margin:0; font-size: 14px; font-weight:900; }
-    .sceneSub{ margin:6px 0 0; font-size: 12px; color: var(--muted); line-height:1.6; }
+    .sceneTitle{ margin:0; font-size: 14px; font-weight:900; color: rgba(15,23,42,.90); }
     .svgWrap{ width: 150px; opacity:.95; }
+
+    .heroHeader{ text-align:center; margin-bottom: 18px; padding-top: 10px; }
+    .heroMoon{ margin-bottom: 10px; animation: floatMoon 6s ease-in-out infinite; display:flex; justify-content:center; }
+    .heroTitle{
+      font-family: 'Reem Kufi Fun', sans-serif;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(90deg, #39e9ae, #0d023f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .heroSub{ margin-top: 5px; font-size: 14px; color: rgba(255,255,255,.80); }
+    @media (max-width: 600px){ .heroTitle{ font-size: 40px; } }
+    @keyframes floatMoon{
+      0%{ transform: translateY(0px); }
+      50%{ transform: translateY(-4px); }
+      100%{ transform: translateY(0px); }
+    }
 
     .hide{ display:none !important; }
   </style>
@@ -475,56 +320,40 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
 
 <body>
   <div class="wrap">
-    
-        <div class="heroHeader">
-            <div class="topbar"></div>
-  <div class="heroMoon">
-    <svg viewBox="200 200 200 160" width="140">
-      <defs>
-        <linearGradient id="ramadanMoon" x1="20" y1="20" x2="160" y2="140">
-          <stop stop-color="#FFD84D"/>
-          <stop offset="" stop-color="#E6B800"/>
-        </linearGradient>
-      </defs>
 
-      
+    <div class="heroHeader">
+      <div class="heroMoon">
+        <svg viewBox="0 0 200 160" width="140" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="ramadanMoon" x1="20" y1="20" x2="160" y2="140">
+              <stop stop-color="#FFD84D"/>
+              <stop offset="1" stop-color="#E6B800"/>
+            </linearGradient>
+          </defs>
+          <path
+            d="M120 25
+               A 55 55 0 1 0 120 135
+               A 40 55 0 1 1 120 25 Z"
+            fill="url(#ramadanMoon)"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            opacity="0.95"
+          />
+          <circle cx="55" cy="45" r="4" fill="#FFD84D" opacity=".75"/>
+          <circle cx="75" cy="70" r="3" fill="#FFD84D" opacity=".55"/>
+          <circle cx="160" cy="55" r="4" fill="#FFD84D" opacity=".75"/>
+          <circle cx="145" cy="35" r="3" fill="#FFD84D" opacity=".55"/>
+        </svg>
+      </div>
 
-      <!-- نجوم -->
-     
-    </svg>
-  </div>
-
-  <h1 class="heroTitle">الرفيق القرآني</h1>
-  <p class="heroSub">منذ 1446 بقيادة الشيخ محمد العقل</p>
-</div>
-     <!-- <div class="brand">
-        <div class="logo" aria-hidden="true">
-           هلال ونجوم بسيط 
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-            <defs>
-              <linearGradient id="g1" x1="6" y1="10" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                <stop stop-color="rgba(16,185,129,.95)"/>
-                <stop offset="1" stop-color="rgba(212,175,55,.95)"/>
-              </linearGradient>
-            </defs>
-            <path d="M28.5 9.2c-6.8 1.1-12 6.9-12 14 0 7.8 6.3 14.1 14.1 14.1 3 0 5.8-.9 8.1-2.4-2.1 3.4-5.9 5.6-10.2 5.6-6.7 0-12.1-5.4-12.1-12.1 0-7.2 6-13 13.2-13.2Z" fill="url(#g1)" opacity=".92"/>
-            <circle cx="12" cy="12" r="1.6" fill="rgba(212,175,55,.9)"/>
-            <circle cx="10" cy="20" r="1.1" fill="rgba(212,175,55,.75)"/>
-            <circle cx="17" cy="9" r="1.1" fill="rgba(212,175,55,.75)"/>
-          </svg>
-        </div>
-        <div>
-          <h1>الرفيق القرآني</h1>
-          <p>منذ 1446   بقيادة الشيخ محمد العقل</p>
-        </div>
-      </div>-->
+      <h1 class="heroTitle">الرفيق القرآني</h1>
+      <p class="heroSub">منذ 1446 بقيادة الشيخ محمد العقل</p>
 
       <div class="pillbar">
         <div class="pill" id="whoPill">غير مسجل</div>
-        <button class="toolbarBtn" id="gotoAppBtn">لوحة المتابعة</button>
-        <button class="toolbarBtn" id="gotoLbBtn">الليدر بورد</button>
-
-        <button class="toolbarBtn danger hide" id="logoutBtn">تسجيل خروج</button>
+        <button class="toolbarBtn" id="gotoAppBtn" type="button">لوحة المتابعة</button>
+        <button class="toolbarBtn" id="gotoLbBtn" type="button">الليدر بورد</button>
+        <button class="toolbarBtn danger hide" id="logoutBtn" type="button">تسجيل خروج</button>
       </div>
     </div>
 
@@ -532,14 +361,14 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
     <div class="authBox card" id="authView">
       <div class="cardHead">
         <div>
-          <h2 class="cardTitle"> مرحبًا بسليل لولوه وابراهيم </h2>
-          <p class="cardSub">سجّل دخولك أو أنشئ حسابًا .</p>
+          <h2 class="cardTitle">مرحبًا بسليل لولوه وابراهيم</h2>
+          <p class="cardSub">سجّل دخولك أو أنشئ حسابًا.</p>
         </div>
       </div>
 
       <div class="authTabs">
-        <button class="tab active" id="tabLogin">تسجيل دخول</button>
-        <button class="tab" id="tabRegister">إنشاء حساب</button>
+        <button class="tab active" id="tabLogin" type="button">تسجيل دخول</button>
+        <button class="tab" id="tabRegister" type="button">إنشاء حساب</button>
       </div>
 
       <div class="form" id="loginForm">
@@ -552,8 +381,7 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
           <input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••" />
         </div>
         <div class="row">
-          <button class="authBtn" id="loginBtn">دخول</button>
-         <!---- <span class="hint">نصيحة: اختاروا أسماء واضحة ()</span>-->
+          <button class="authBtn" id="loginBtn" type="button">دخول</button>
         </div>
         <div class="msg" id="loginMsg"></div>
       </div>
@@ -572,8 +400,8 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
           <input id="regPass" type="password" autocomplete="new-password" placeholder="••••••••" />
         </div>
         <div class="row">
-          <button class="authBtn" id="registerBtn">إنشاء</button>
-          <span class="hint">سيتم إنشاء حساب جديد وحفظه داخل المتصفح.</span>
+          <button class="authBtn" id="registerBtn" type="button">إنشاء</button>
+          <span class="hint">سيتم إنشاء حساب مشترك على قاعدة البيانات.</span>
         </div>
         <div class="msg" id="regMsg"></div>
       </div>
@@ -585,27 +413,37 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
         <div class="cardHead">
           <div>
             <h2 class="cardTitle" id="helloTitle">لوحة المتابعة</h2>
-           <!----> <p class="cardSub">اضغط على الجزء عند إكماله (يمكنك إلغاء التحديد بالضغط مرة أخرى).</p>
+            <p class="cardSub">اضغط على الجزء عند إكماله (يمكنك إلغاء التحديد بالضغط مرة أخرى).</p>
           </div>
         </div>
 
         <div class="cardBody">
           <div class="scene">
             <div>
-              <p class="sceneTitle">هدفنا ان يختم كل متسابق مرة واحده على الاقل</p>
-            <!---- <p class="sceneSub">تابع أجزاءك يوميًا. كل ضغط يحفظ حالتك تلقائيًا.</p> -->
+              <p class="sceneTitle">هدفنا أن يختم كل متسابق مرة واحدة على الأقل</p>
             </div>
+
             <div class="svgWrap" aria-hidden="true">
-              <svg viewBox="0 0 260 11" width="150" height="50">
+              <svg viewBox="0 0 260 160" width="150" height="90" preserveAspectRatio="xMidYMid meet">
                 <defs>
-                  <linearGradient id="moon" x1="40" y1="20" x2="120" y2="90" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="moon2" x1="60" y1="30" x2="200" y2="140" gradientUnits="userSpaceOnUse">
                     <stop stop-color="rgba(212,175,55,.95)"/>
                     <stop offset="1" stop-color="rgba(16,185,129,.9)"/>
                   </linearGradient>
                 </defs>
-                <path 
-
-/>
+                <path
+                  d="M150 25
+                     A 55 55 0 1 0 150 135
+                     A 40 55 0 1 1 150 25 Z"
+                  fill="url(#moon2)"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  opacity="0.95"
+                />
+                <circle cx="75" cy="40" r="4" fill="rgba(212,175,55,.7)"/>
+                <circle cx="95" cy="65" r="3" fill="rgba(212,175,55,.55)"/>
+                <circle cx="210" cy="55" r="4" fill="rgba(212,175,55,.7)"/>
+                <circle cx="190" cy="35" r="3" fill="rgba(212,175,55,.55)"/>
               </svg>
             </div>
           </div>
@@ -619,7 +457,6 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
           </div>
 
           <div style="height:12px"></div>
-
           <div class="juzGrid" id="juzGrid"></div>
         </div>
       </div>
@@ -628,7 +465,7 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
         <div class="cardHead">
           <div>
             <h2 class="cardTitle">القراء</h2>
-            <p class="cardSub">سابقنا على الجنه.</p>
+            <p class="cardSub">سابقنا على الجنة.</p>
           </div>
         </div>
         <div class="cardBody">
@@ -641,8 +478,8 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
     <div class="card hide" id="lbOnlyView">
       <div class="cardHead">
         <div>
-          <h2 class="cardTitle">ساحة الصدارة  </h2>
-          <p class="cardSub">ترتيب جميع المستخدمين المسجلين على هذا المتصفح.</p>
+          <h2 class="cardTitle">ساحة الصدارة</h2>
+          <p class="cardSub">ترتيب جميع المستخدمين (مشترك للجميع).</p>
         </div>
       </div>
       <div class="cardBody">
@@ -654,438 +491,552 @@ font-size: clamp(80px, 6vw, 80px);  font-weight: 90;
 
   <div class="toast" id="toast"><div></div></div>
 
-<script>
-/** =========================
- *  تخزين محلي بسيط (localStorage)
- *  ========================= */
-const LS_USERS = "rq_users_v1";     // { username: {displayName, pass, progress:[1..30]} }
-const LS_SESSION = "rq_session_v1"; // { username }
+  <!-- ✅ UMD ثابت للمتصفح -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
-function loadUsers(){
-  try { return JSON.parse(localStorage.getItem(LS_USERS) || "{}"); }
-  catch { return {}; }
-}
-function saveUsers(users){
-  localStorage.setItem(LS_USERS, JSON.stringify(users));
-}
-function getSession(){
-  try { return JSON.parse(localStorage.getItem(LS_SESSION) || "null"); }
-  catch { return null; }
-}
-function setSession(sess){
-  localStorage.setItem(LS_SESSION, JSON.stringify(sess));
-}
-function clearSession(){
-  localStorage.removeItem(LS_SESSION);
-}
+  <script>
+    // =========================
+    // Supabase
+    // =========================
+    const SUPABASE_URL = "https://hkckofxfmcmkgyxjcxhx.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrY2tvZnhmbWNta2d5eGpjeGh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE2MjIwNDgsImV4cCI6MjA4NzE5ODA0OH0.NAKVAMY4Kak8EVmYgGeXEKenditGNm-KPcEK95wus4s";
 
-/** =========================
- *  أدوات صغيرة
- *  ========================= */
-const $ = (id) => document.getElementById(id);
-
-function toast(msg){
-  const t = $("toast");
-  t.querySelector("div").textContent = msg;
-  t.classList.add("show");
-  setTimeout(()=> t.classList.remove("show"), 1800);
-}
-function normalizeUsername(u){
-  return (u || "").trim().toLowerCase().replace(/\s+/g,"");
-}
-function clamp(n,min,max){ return Math.max(min, Math.min(max, n)); }
-
-/** =========================
- *  عناصر الواجهة
- *  ========================= */
-const authView = $("authView");
-const appView = $("appView");
-const lbOnlyView = $("lbOnlyView");
-
-const whoPill = $("whoPill");
-const logoutBtn = $("logoutBtn");
-const gotoAppBtn = $("gotoAppBtn");
-const gotoLbBtn = $("gotoLbBtn");
-
-const tabLogin = $("tabLogin");
-const tabRegister = $("tabRegister");
-const loginForm = $("loginForm");
-const registerForm = $("registerForm");
-const loginMsg = $("loginMsg");
-const regMsg = $("regMsg");
-
-const helloTitle = $("helloTitle");
-const progressPill = $("progressPill");
-const percentPill = $("percentPill");
-const progressFill = $("progressFill");
-const juzGrid = $("juzGrid");
-
-const lbList = $("lbList");
-const lbListOnly = $("lbListOnly");
-
-let currentUser = null;
-
-/** =========================
- *  عرض/إخفاء
- *  ========================= */
-function showAuth(){
-  authView.classList.remove("hide");
-  appView.classList.add("hide");
-  lbOnlyView.classList.add("hide");
-}
-function showApp(){
-  authView.classList.add("hide");
-  appView.classList.remove("hide");
-  lbOnlyView.classList.add("hide");
-}
-function showLbOnly(){
-  authView.classList.add("hide");
-  appView.classList.add("hide");
-  lbOnlyView.classList.remove("hide");
-}
-
-/** =========================
- *  تبويبات Auth
- *  ========================= */
-tabLogin.onclick = () => {
-  tabLogin.classList.add("active");
-  tabRegister.classList.remove("active");
-  loginForm.classList.remove("hide");
-  registerForm.classList.add("hide");
-  loginMsg.classList.remove("show");
-  regMsg.classList.remove("show");
-};
-tabRegister.onclick = () => {
-  tabRegister.classList.add("active");
-  tabLogin.classList.remove("active");
-  registerForm.classList.remove("hide");
-  loginForm.classList.add("hide");
-  loginMsg.classList.remove("show");
-  regMsg.classList.remove("show");
-};
-
-/** =========================
- *  تسجيل/دخول
- *  ========================= */
-$("registerBtn").onclick = () => {
-  const displayName = ($("regName").value || "").trim();
-  const usernameRaw = $("regUser").value;
-  const username = normalizeUsername(usernameRaw);
-  const pass = $("regPass").value || "";
-
-  const users = loadUsers();
-
-  if(!displayName || !username || pass.length < 4){
-    regMsg.textContent = "تأكد من إدخال الاسم، واسم مستخدم، وكلمة مرور (4 أحرف فأكثر).";
-    regMsg.classList.add("show");
-    return;
-  }
-  if(users[username]){
-    regMsg.textContent = "اسم المستخدم مستخدم مسبقًا. اختر اسمًا آخر.";
-    regMsg.classList.add("show");
-    return;
-  }
-
-  users[username] = { displayName, pass, progress: [], khatmat: 0 };
-  saveUsers(users);
-
-  regMsg.textContent = "تم إنشاء الحساب ✅ الآن سجّل دخولك.";
-  regMsg.classList.add("show");
-  toast("تم إنشاء الحساب 🌙");
-  // انتقل لتسجيل الدخول
-  tabLogin.click();
-  $("loginUser").value = username;
-  $("loginPass").value = "";
-};
-
-$("loginBtn").onclick = () => {
-  const username = normalizeUsername($("loginUser").value);
-  const pass = $("loginPass").value || "";
-  const users = loadUsers();
-
-  if(!users[username] || users[username].pass !== pass){
-    loginMsg.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة.";
-    loginMsg.classList.add("show");
-    return;
-  }
-
-  setSession({ username });
-  currentUser = username;
-  loginMsg.classList.remove("show");
-  toast("أهلًا وسهلًا 🌙");
-  renderAll();
-  showApp();
-};
-
-logoutBtn.onclick = () => {
-  clearSession();
-  currentUser = null;
-  toast("تم تسجيل الخروج");
-  renderAll();
-  showAuth();
-};
-
-/** =========================
- *  تنقل علوي
- *  ========================= */
-gotoAppBtn.onclick = () => {
-  const sess = getSession();
-  if(!sess){ showAuth(); toast("سجّل دخولك أولًا"); return; }
-  showApp();
-  renderAll();
-};
-gotoLbBtn.onclick = () => {
-  // ليدر بورد بدون الحاجة لتسجيل دخول
-  showLbOnly();
-  renderLeaderboard(lbListOnly, null);
-};
-
-/** =========================
- *  إنشاء شبكة الأجزاء
- *  ========================= */
-function buildJuzGrid(){
-  juzGrid.innerHTML = "";
-  for(let i=1;i<=30;i++){
-    const btn = document.createElement("button");
-    btn.className = "juzBtn";
-    btn.dataset.juz = String(i);
-    btn.innerHTML = `
-      <div class="small">الجزء</div>
-      <div class="num">${i}</div>
-      <div class="check hide"></div>
-    `;
-    btn.onclick = () => toggleJuz(i);
-    juzGrid.appendChild(btn);
-  }
-}
-
-function toggleJuz(juz){
-  const users = loadUsers();
-  const u = users[currentUser];
-  if(!u) return;
-
-  const arr = Array.isArray(u.progress) ? u.progress : [];
-  const idx = arr.indexOf(juz);
-
-  if(idx === -1){
-    arr.push(juz);
-    arr.sort((a,b)=>a-b);
-    u.progress = arr;
-    saveUsers(users);
-    showRandomMessage();
-  }else{
-    // يسمح بالإلغاء بالضغط مرة أخرى
-    arr.splice(idx,1);
-    u.progress = arr;
-    saveUsers(users);
-    toast("تم إلغاء التحديد");
-  }
-    // إذا اكتملت الختمة (30/30) => زِد عدد الختمات وابدأ ختمة جديدة
-  if ((u.progress || []).length === 30) {
-    u.khatmat = Number(u.khatmat || 0) + 1;
-    u.progress = []; // يبدأ ختمة جديدة
-    saveUsers(users);
-    toast(" 🎉ماشاءالله🎉");
-  }
-  renderAll();
-}
-
-/** =========================
- *  تقدم المستخدم
- *  ========================= */
-function renderProgress(){
-  const users = loadUsers();
-  const u = users[currentUser];
-  const name = u?.displayName || "";
-
-  helloTitle.textContent = `أهلًا يا ${name} 🌙`;
-
-  const done = (u?.progress || []).length;
-  const pct = Math.round((done/30)*100);
-
-  progressPill.textContent = `${done} / 30`;
-  percentPill.textContent = `${pct}%`;
-  progressFill.style.width = `${clamp(pct,0,100)}%`;
-
-  // تحديث أزرار الشبكة
-  const doneSet = new Set(u?.progress || []);
-  [...juzGrid.querySelectorAll(".juzBtn")].forEach((btn)=>{
-    const j = Number(btn.dataset.juz);
-    const isDone = doneSet.has(j);
-    btn.classList.toggle("done", isDone);
-    const check = btn.querySelector(".check");
-    if(check) check.classList.toggle("hide", !isDone);
-  });
-
-  // إذا اكتمل
-  if(done === 30){
-    toast("ما شاء الله! ختمت القرآن 🎉🌙");
-  }
-}
-
-/** =========================
- *  ليدر بورد
- *  ========================= */
-function renderLeaderboard(container, highlightUser){
-  const users = loadUsers();
-
-  const rows = Object.entries(users).map(([username, data]) => {
-    const count = Array.isArray(data.progress) ? data.progress.length : 0;
-    const khatmat = Number(data.khatmat || 0);
-    return {
-      username,
-      displayName: data.displayName || username,
-      count,
-      khatmat
-    };
-  });
-
-  // ترتيب: ختمات أولاً، ثم الأجزاء، ثم الاسم
-  rows.sort((a, b) => {
-    if (b.khatmat !== a.khatmat) return b.khatmat - a.khatmat;
-    if (b.count !== a.count) return b.count - a.count;
-    return a.displayName.localeCompare(b.displayName, "ar");
-  });
-
-  container.innerHTML = "";
-  if(rows.length === 0){
-    container.innerHTML = `<div class="hint">لا يوجد مستخدمون بعد. أنشئ حسابًا أولًا.</div>`;
-    return;
-  }
-
-  rows.forEach((r, idx) => {
-    const el = document.createElement("div");
-    el.className = "lbRow";
-
-    const isMe = highlightUser && r.username === highlightUser;
-    el.style.borderColor = isMe ? "rgba(16,185,129,.32)" : "rgba(15,23,42,.10)";
-    el.style.background   = isMe ? "rgba(16,185,129,.08)" : "rgba(255,255,255,.5)";
-
-    const pct = Math.round((r.count / 30) * 100);
-    const medal = idx===0 ? "🥇" : idx===1 ? "🥈" : idx===2 ? "🥉" : "⭐";
-
-    el.innerHTML = `
-      <div class="lbLeft">
-        <div class="rank">${idx + 1}</div>
-        <div>
-          <div class="name">${medal} ${escapeHtml(r.displayName)}${isMe ? " (أنت)" : ""}</div>
-          <div class="meta">${r.count} / 30 — ${pct}%</div>
-        </div>
-      </div>
-
-      <div class="khatmaTag" title="عدد الختمات">
-        <div class="crown"> 👑</div>
-        <div class="num">${r.khatmat}</div>
-        <div class="label"></div>
-      </div>
-    `;
-
-    container.appendChild(el);
-  });
-
-  
-}
-function showRandomMessage(){
-  const messages = [
-    "بارك الله فيك ",
-    "ما شاء الله عليك",
-    "تقبل الله قراءتك ",
-    "نور الله قلبك ",
-    "زادك الله قربًا ",
-    "استمر ",
-    "خطوة مباركة ",
-    "شطور",
-    "ممتاز",
-  ];
-
-  const random = messages[Math.floor(Math.random() * messages.length)];
-  toast(random);
-}
-
-function escapeHtml(s){
-  return String(s)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-/** =========================
- *  إعادة ضبط تقدّم المستخدم الحالي
- *  ========================= */
-/*$("resetBtn").onclick = () => {
-  const users = loadUsers();
-  const u = users[currentUser];
-  if(!u) return;
-
-  const ok = confirm("هل تريد إعادة ضبط تقدمك؟ سيتم مسح أجزاءك المكتملة لهذا الحساب فقط.");
-  if(!ok) return;
-
-  u.progress = [];
-  saveUsers(users);
-  toast("تمت إعادة الضبط");
-  renderAll();
-};*/
-
-/** =========================
- *  تحديث شريط الحالة
- *  ========================= */
-function renderTopPill(){
-  const sess = getSession();
-  const users = loadUsers();
-
-  if(sess?.username && users[sess.username]){
-    currentUser = sess.username;
-    whoPill.textContent = `مسجل: ${users[currentUser].displayName}`;
-    logoutBtn.classList.remove("hide");
-  }else{
-    currentUser = null;
-    whoPill.textContent = "غير مسجل";
-    logoutBtn.classList.add("hide");
-  }
-}
-
-/** =========================
- *  رندر شامل
- *  ========================= */
-function renderAll(){
-  renderTopPill();
-
-  // رندر ليدر بورد (يمين لوحة المتابعة)
-  renderLeaderboard(lbList, currentUser);
-
-  // إذا داخل لوحة المتابعة
-  if(!appView.classList.contains("hide")){
-    if(!currentUser){
-      showAuth();
-      return;
+    // ✅ هذا يضمن أن المكتبة loaded
+    if (typeof supabase === "undefined" || !supabase.createClient) {
+      alert("تعذر تحميل Supabase. تأكد من اتصال الإنترنت ثم أعد تحديث الصفحة.");
+      throw new Error("Supabase UMD not loaded");
     }
-    renderProgress();
-  }
-}
 
-/** =========================
- *  تشغيل أولي
- *  ========================= */
-buildJuzGrid();
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-(function init(){
-  const sess = getSession();
-  const users = loadUsers();
+    // =========================
+    // Helpers
+    // =========================
+    const $ = (id) => document.getElementById(id);
 
-  renderTopPill();
+    function toast(msg, duration = 2500){
+      const t = $("toast");
+      t.querySelector("div").textContent = msg;
+      t.classList.add("show");
+      setTimeout(()=> t.classList.remove("show"), duration);
+    }
 
-  if(sess?.username && users[sess.username]){
-    showApp();
-    renderAll();
-  }else{
-    showAuth();
-  }
+    function normalizeUsername(u){
+      return (u || "").trim().toLowerCase().replace(/\s+/g,"");
+    }
 
-  // ليدر بورد في صفحة مستقلة
-  renderLeaderboard(lbListOnly, null);
-})();
-</script>
+    function clamp(n,min,max){ return Math.max(min, Math.min(max, n)); }
+
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function showRandomMessage(){
+      const messages = [
+        "بارك الله فيك 🌙",
+        "ما شاء الله عليك ✨",
+        "تقبل الله قراءتك 📖",
+        "نور الله قلبك 💛",
+        "زادك الله قربًا 🤍",
+        "استمر 👏",
+        "خطوة مباركة 🌿",
+        "ممتاز ✅",
+      ];
+      toast(messages[Math.floor(Math.random() * messages.length)]);
+    }
+
+    // ✅ بريد “شكلُه صحيح” دائمًا لتفادي 422 بسبب email
+    function toEmailFromUsername(username){
+      return `${username}.family@gmail.com`;
+    }
+
+    async function getCurrentUser(){
+      const { data, error } = await sb.auth.getUser();
+      if (error) return null;
+      return data?.user || null;
+    }
+
+    async function signOut(){
+      await sb.auth.signOut();
+    }
+
+    async function ensureProfile(userId, displayName){
+      // upsert profile
+      const p = await sb.from("profiles").upsert(
+        { id: userId, display_name: displayName },
+        { onConflict: "id" }
+      );
+      if (p.error) throw p.error;
+
+      // ensure khatmat row
+      const k = await sb.from("khatmat").upsert(
+        { user_id: userId, count: 0 },
+        { onConflict: "user_id" }
+      );
+      if (k.error) throw k.error;
+    }
+
+    async function fetchMyProgress(userId){
+      const { data, error } = await sb.from("progress").select("juz").eq("user_id", userId);
+      if(error) return [];
+      return (data || []).map(x => x.juz);
+    }
+
+    async function fetchAllForLeaderboard(){
+      const [profilesRes, progressRes, khatmatRes] = await Promise.all([
+        sb.from("profiles").select("id, display_name"),
+        sb.from("progress").select("user_id, juz"),
+        sb.from("khatmat").select("user_id, count")
+      ]);
+
+      return {
+        profiles: profilesRes.data || [],
+        progress: progressRes.data || [],
+        khatmat: khatmatRes.data || []
+      };
+    }
+
+    async function incrementKhatmaAndReset(userId){
+      const { data: kh, error: khErr } = await sb
+        .from("khatmat")
+        .select("count")
+        .eq("user_id", userId)
+        .maybeSingle();
+
+      const current = kh?.count ?? 0;
+
+      if(!khErr){
+        const up = await sb.from("khatmat").upsert(
+          { user_id: userId, count: current + 1, updated_at: new Date().toISOString() },
+          { onConflict: "user_id" }
+        );
+        if (up.error) throw up.error;
+      }
+
+      const del = await sb.from("progress").delete().eq("user_id", userId);
+      if (del.error) throw del.error;
+    }
+
+    // =========================
+    // UI Elements
+    // =========================
+    const authView = $("authView");
+    const appView = $("appView");
+    const lbOnlyView = $("lbOnlyView");
+
+    const whoPill = $("whoPill");
+    const logoutBtn = $("logoutBtn");
+    const gotoAppBtn = $("gotoAppBtn");
+    const gotoLbBtn = $("gotoLbBtn");
+
+    const tabLogin = $("tabLogin");
+    const tabRegister = $("tabRegister");
+    const loginForm = $("loginForm");
+    const registerForm = $("registerForm");
+    const loginMsg = $("loginMsg");
+    const regMsg = $("regMsg");
+
+    const helloTitle = $("helloTitle");
+    const progressPill = $("progressPill");
+    const percentPill = $("percentPill");
+    const progressFill = $("progressFill");
+    const juzGrid = $("juzGrid");
+
+    const lbList = $("lbList");
+    const lbListOnly = $("lbListOnly");
+
+    let currentUser = null;
+
+    function showAuth(){
+      authView.classList.remove("hide");
+      appView.classList.add("hide");
+      lbOnlyView.classList.add("hide");
+    }
+    function showApp(){
+      authView.classList.add("hide");
+      appView.classList.remove("hide");
+      lbOnlyView.classList.add("hide");
+    }
+    function showLbOnly(){
+      authView.classList.add("hide");
+      appView.classList.add("hide");
+      lbOnlyView.classList.remove("hide");
+    }
+
+    // =========================
+    // Tabs
+    // =========================
+    tabLogin.onclick = () => {
+      tabLogin.classList.add("active");
+      tabRegister.classList.remove("active");
+      loginForm.classList.remove("hide");
+      registerForm.classList.add("hide");
+      loginMsg.classList.remove("show");
+      regMsg.classList.remove("show");
+    };
+    tabRegister.onclick = () => {
+      tabRegister.classList.add("active");
+      tabLogin.classList.remove("active");
+      registerForm.classList.remove("hide");
+      loginForm.classList.add("hide");
+      loginMsg.classList.remove("show");
+      regMsg.classList.remove("show");
+    };
+
+    // =========================
+    // Auth Actions (FIXED)
+    // =========================
+    $("registerBtn").onclick = async () => {
+      const btn = $("registerBtn");
+      btn.disabled = true;
+
+      try{
+        regMsg.classList.remove("show");
+        loginMsg.classList.remove("show");
+
+        const displayName = ($("regName").value || "").trim();
+        const username = normalizeUsername($("regUser").value || "");
+        const pass = $("regPass").value || "";
+
+        // ✅ تحقق مرة واحدة فقط
+        const okUser = /^[a-z0-9._-]{3,20}$/.test(username);
+
+        if(!displayName || !username){
+          regMsg.textContent = "اكتب الاسم الظاهر واسم المستخدم.";
+          regMsg.classList.add("show");
+          return;
+        }
+        if(!okUser){
+          regMsg.textContent = "اسم المستخدم لازم يكون إنجليزي/أرقام فقط بدون مسافات (مثال: fay1 أو abdullah_2).";
+          regMsg.classList.add("show");
+          return;
+        }
+        if(pass.length < 6){
+          regMsg.textContent = "كلمة المرور لازم تكون 6 أحرف على الأقل.";
+          regMsg.classList.add("show");
+          return;
+        }
+
+        const email = toEmailFromUsername(username);
+
+        const { data, error } = await sb.auth.signUp({ email, password: pass });
+
+        if(error){
+          console.error("SIGNUP ERROR:", error);
+          regMsg.textContent = `فشل إنشاء الحساب: ${error.message || "غير معروف"}`;
+          regMsg.classList.add("show");
+          return;
+        }
+
+        if (data?.user) {
+          try{
+            await ensureProfile(data.user.id, displayName);
+          } catch (e) {
+            console.error("PROFILE ERROR:", e);
+            regMsg.textContent = "تم إنشاء الحساب، لكن فشل حفظ الملف الشخصي. تأكد من سياسات RLS ثم جرّب تسجيل الدخول.";
+            regMsg.classList.add("show");
+            return;
+          }
+        }
+
+        regMsg.textContent = "تم إنشاء الحساب ✅ الآن سجّل دخولك.";
+        regMsg.classList.add("show");
+        toast("تم إنشاء الحساب 🌙");
+
+        tabLogin.click();
+        $("loginUser").value = username;
+        $("loginPass").value = "";
+
+      } finally {
+        btn.disabled = false;
+      }
+    };
+
+    $("loginBtn").onclick = async () => {
+      const btn = $("loginBtn");
+      btn.disabled = true;
+
+      try{
+        loginMsg.classList.remove("show");
+        regMsg.classList.remove("show");
+
+        const username = normalizeUsername($("loginUser").value || "");
+        const pass = $("loginPass").value || "";
+
+        if(!username || !pass){
+          loginMsg.textContent = "اكتب اسم المستخدم وكلمة المرور.";
+          loginMsg.classList.add("show");
+          return;
+        }
+
+        const email = toEmailFromUsername(username);
+
+        const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+
+        if(error){
+          console.error("LOGIN ERROR:", error);
+          loginMsg.textContent = error.message || "اسم المستخدم أو كلمة المرور غير صحيحة.";
+          loginMsg.classList.add("show");
+          return;
+        }
+
+        toast("أهلًا وسهلًا 🌙");
+        currentUser = data?.user?.id || null;
+        await renderAll();
+        showApp();
+
+      } finally {
+        btn.disabled = false;
+      }
+    };
+
+    logoutBtn.onclick = async () => {
+      await signOut();
+      currentUser = null;
+      toast("تم تسجيل الخروج");
+      await renderAll();
+      showAuth();
+    };
+
+    // =========================
+    // Top Navigation
+    // =========================
+    gotoAppBtn.onclick = async () => {
+      const user = await getCurrentUser();
+      if(!user){
+        showAuth();
+        toast("سجّل دخولك أولًا");
+        return;
+      }
+      showApp();
+      await renderAll();
+    };
+
+    gotoLbBtn.onclick = async () => {
+      showLbOnly();
+      await renderLeaderboard(lbListOnly, null);
+    };
+
+    // =========================
+    // Juz Grid
+    // =========================
+    function buildJuzGrid(){
+      juzGrid.innerHTML = "";
+      for(let i=1;i<=30;i++){
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "juzBtn";
+        btn.dataset.juz = String(i);
+        btn.innerHTML = `
+          <div class="small">الجزء</div>
+          <div class="num">${i}</div>
+        `;
+        btn.onclick = () => toggleJuz(i);
+        juzGrid.appendChild(btn);
+      }
+    }
+
+    async function toggleJuz(juz){
+      const user = await getCurrentUser();
+      if(!user){
+        toast("سجّل دخولك أولًا");
+        showAuth();
+        return;
+      }
+      const userId = user.id;
+
+      const { data: existing } = await sb
+        .from("progress")
+        .select("juz")
+        .eq("user_id", userId)
+        .eq("juz", juz)
+        .maybeSingle();
+
+      if(!existing){
+        const ins = await sb.from("progress").insert({ user_id: userId, juz });
+        if(!ins.error) showRandomMessage();
+      } else {
+        await sb.from("progress").delete().eq("user_id", userId).eq("juz", juz);
+        toast("تم إلغاء التحديد");
+      }
+
+      const my = await fetchMyProgress(userId);
+      if(my.length === 30){
+        await incrementKhatmaAndReset(userId);
+        toast("ما شاء الله! تمّت الختمة 🎉🌙 وبدأت ختمة جديدة", 5000);
+      }
+
+      await renderAll();
+    }
+
+    // =========================
+    // Render Progress
+    // =========================
+    async function renderProgress(){
+      const user = await getCurrentUser();
+      if(!user) return;
+
+      const userId = user.id;
+
+      const [progressArr, profRes, khRes] = await Promise.all([
+        fetchMyProgress(userId),
+        sb.from("profiles").select("display_name").eq("id", userId).maybeSingle(),
+        sb.from("khatmat").select("count").eq("user_id", userId).maybeSingle()
+      ]);
+
+      const name = profRes.data?.display_name || "مستخدم";
+      const khatmatCount = khRes.data?.count ?? 0;
+
+      helloTitle.textContent = `لوحة المتابعة — أهلًا يا ${name} 🌙`;
+
+      const done = progressArr.length;
+      const pct = Math.round((done/30)*100);
+
+      progressPill.textContent = `${done} / 30`;
+      percentPill.textContent = `${pct}%`;
+      progressFill.style.width = `${clamp(pct,0,100)}%`;
+
+      const doneSet = new Set(progressArr);
+      [...juzGrid.querySelectorAll(".juzBtn")].forEach((btn)=>{
+        const j = Number(btn.dataset.juz);
+        btn.classList.toggle("done", doneSet.has(j));
+      });
+    }
+
+    // =========================
+    // Leaderboard (works without login)
+    // =========================
+    async function renderLeaderboard(container, highlightUser){
+      const all = await fetchAllForLeaderboard();
+      const profiles = all.profiles;
+      const progress = all.progress;
+      const khatmat = all.khatmat;
+
+      const countMap = new Map();
+      for(const row of progress){
+        countMap.set(row.user_id, (countMap.get(row.user_id) || 0) + 1);
+      }
+
+      const khMap = new Map();
+      for(const row of khatmat){
+        khMap.set(row.user_id, Number(row.count || 0));
+      }
+
+      const rows = profiles.map(p => {
+        const count = countMap.get(p.id) || 0;
+        const kh = khMap.get(p.id) || 0;
+        return { userId: p.id, displayName: p.display_name || "مستخدم", count, khatmat: kh };
+      });
+
+      rows.sort((a,b)=>
+        b.khatmat - a.khatmat ||
+        b.count - a.count ||
+        a.displayName.localeCompare(b.displayName, "ar")
+      );
+
+      container.innerHTML = "";
+
+      if(rows.length === 0){
+        container.innerHTML = `<div class="hint">لا يوجد مستخدمون بعد.</div>`;
+        return;
+      }
+
+      rows.forEach((r, idx)=>{
+        const el = document.createElement("div");
+        el.className = "lbRow";
+
+        const isMe = highlightUser && r.userId === highlightUser;
+        const pct = Math.round((r.count/30)*100);
+        const medal = idx===0 ? "🥇" : idx===1 ? "🥈" : idx===2 ? "🥉" : "⭐";
+
+        el.style.borderColor = isMe ? "rgba(16,185,129,.35)" : "rgba(255,255,255,.18)";
+        el.style.background = isMe ? "rgba(16,185,129,.10)" : "rgba(255,255,255,.5)";
+
+        el.innerHTML = `
+          <div class="lbLeft">
+            <div class="rank">${idx+1}</div>
+            <div>
+              <div class="name">${medal} ${escapeHtml(r.displayName)}${isMe ? " (أنت)" : ""}</div>
+              <div class="meta">${r.count} / 30 — ${pct}%</div>
+            </div>
+          </div>
+
+          <div class="khatmaTag" title="عدد الختمات">
+            <div class="crown">👑</div>
+            <div class="num">${r.khatmat}</div>
+            <div class="label">ختمات</div>
+          </div>
+        `;
+
+        container.appendChild(el);
+      });
+    }
+
+    // =========================
+    // Top pill
+    // =========================
+    async function renderTopPill(){
+      const user = await getCurrentUser();
+      if(!user){
+        currentUser = null;
+        whoPill.textContent = "غير مسجل";
+        logoutBtn.classList.add("hide");
+        return;
+      }
+
+      currentUser = user.id;
+      logoutBtn.classList.remove("hide");
+
+      const { data: prof } = await sb
+        .from("profiles")
+        .select("display_name")
+        .eq("id", user.id)
+        .maybeSingle();
+
+      whoPill.textContent = `مسجل: ${prof?.display_name || "مستخدم"}`;
+    }
+
+    // =========================
+    // Render all
+    // =========================
+    async function renderAll(){
+      await renderTopPill();
+      await renderLeaderboard(lbList, currentUser);
+      await renderLeaderboard(lbListOnly, null);
+
+      if(!appView.classList.contains("hide")){
+        if(!currentUser){
+          showAuth();
+          return;
+        }
+        await renderProgress();
+      }
+    }
+
+    // =========================
+    // Init
+    // =========================
+    (async function init(){
+      buildJuzGrid();
+
+      sb.auth.onAuthStateChange(async () => {
+        await renderAll();
+        const user = await getCurrentUser();
+        if(user) showApp();
+        else showAuth();
+      });
+
+      const user = await getCurrentUser();
+      if(user) showApp();
+      else showAuth();
+
+      await renderAll();
+    })();
+  </script>
 </body>
 </html>
