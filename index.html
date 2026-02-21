@@ -479,7 +479,7 @@
       <div class="cardHead">
         <div>
           <h2 class="cardTitle">ساحة الصدارة</h2>
-          <p class="cardSub">اللهم من سبق فزده بركة,ومن تأخر فقوّ عزيمته</p>
+          <p class="cardSub">اللهم من سبق فزده بركة,ومن تأخر فقوّ عزيمت</p>
         </div>
       </div>
       <div class="cardBody">
@@ -507,8 +507,35 @@
       throw new Error("Supabase UMD not loaded");
     }
 
-    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+function makeSafeStorage(){
+  // تخزين داخل الذاكرة (لا يعتمد على localStorage)
+  const mem = new Map();
+  return {
+    getItem: (key) => (mem.has(key) ? mem.get(key) : null),
+    setItem: (key, value) => { mem.set(key, value); },
+    removeItem: (key) => { mem.delete(key); }
+  };
+}
 
+let storage;
+try {
+  // نجرب localStorage
+  const t = "__test__";
+  localStorage.setItem(t, "1");
+  localStorage.removeItem(t);
+  storage = localStorage;
+} catch (e) {
+  // إذا المتصفح يمنعه، نستخدم الذاكرة
+  storage = makeSafeStorage();
+}
+
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  auth: {
+    persistSession: false,
+    autoRefreshToken: false,
+    detectSessionInUrl: false
+  }
+});
     // =========================
     // Helpers
     // =========================
